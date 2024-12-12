@@ -1,0 +1,338 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<html>
+<head>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'/>
+    <meta content='follow, index' name='robots'/>
+    <title><data:blog.pageTitle/></title>
+    <b:if cond='data:blog.pageType == "index"'>
+    <meta name='title' expr:content='data:blog.pageTitle'/>
+    <b:else/>
+    <meta name='title' expr:content='data:blog.pageName'/>
+    </b:if>
+    <meta name='description' expr:content='data:view.description.escaped'/>
+    <meta property='og:type' content='website'/>
+    <meta property='og:site_name' expr:content='data:blog.title'/>
+    <b:if cond='data:blog.pageType == "index"'>
+    <meta property='og:title' expr:content='data:blog.pageTitle'/>
+    <b:else/>
+    <meta property='og:title' expr:content='data:blog.pageName'/>
+    </b:if>
+    <meta property='og:description' expr:content='data:view.description.escaped'/>
+    <meta property='og:url' expr:content='data:blog.url'/>
+    <link href='https://fonts.googleapis.com/css2?family=Open+Sans:wght@300..800' rel='stylesheet'/>
+    <b:skin><![CDATA[
+    /* General */
+    body {
+    margin:0px;
+    padding:0px;
+    display:flex;
+    flex-direction:column;
+    font-family:"Open Sans", sans-serif;
+    font-optical-sizing:auto;
+    font-weight:400;
+    font-size:16px;
+    color:#222222;
+    line-height:normal;
+    text-justify:inter-word;
+    word-wrap:break-word;
+    }
+
+    h1, h2, h4 {
+    margin:0px;
+    padding:0px;
+    margin-bottom:5px;
+    color:#070F2B;
+    }
+
+    h1, h2 {
+    font-weight:700;
+    font-size:25px;
+    }
+
+    h4 {
+    font-weight:700;
+    font-size:20px;
+    }
+
+    a {
+    text-decoration:none;
+    color:#3399bb;
+    }
+
+    h2 a, #popularpost-section a, #label-section a {
+    color:inherit;
+    }
+
+    ul, li {
+    margin:0px;
+    padding:0px;
+    list-style:none;
+    }
+
+    #popularpost-section li {
+    margin-bottom:10px;
+    }
+
+    /* Layout */
+    header, nav, main, footer {
+    width:990px;
+    margin-left:auto;
+    margin-right:auto;
+    }
+
+    header {
+    border-bottom:1px solid #cdcdcd;
+    margin-bottom:20px;
+    padding-top:10px;
+    padding-bottom:10px;
+    font-size:40px;
+    font-weight:700;
+    }
+
+    main {
+    display:flex;
+    flex-direction:row;
+    gap:40px;
+    min-height:100vh;
+    }
+
+    section {
+    width:650px;
+    }
+
+    aside {
+    width:300px;
+    font-size:15px;
+    }
+
+    footer {
+    border-top:1px dotted #cdcdcd;
+    margin-top:20px;
+    padding-top:10px;
+    padding-bottom:10px;
+    }
+
+    /* Section */
+    article {
+    margin-bottom:40px;
+    }
+
+    /* Comment */
+    .commentdiv {
+    border-top:1px dashed #cdcdcd;
+    margin-top:10px;
+    padding-top:10px;
+    }
+    
+    .comments .comments-content .comment-header, .comments .comments-content .comment-content {
+    margin:0px;
+    }
+
+    .comments .comments-content .comment:first-child {
+    padding-top:0px;
+    }
+
+    .comments .comments-content .user, .comments .continue a  {
+    font-size:14px !important;
+    font-weight:600;
+    }
+
+    .comment-block {
+    padding:10px;
+    background-color:#f9f9f9;
+    }
+
+    .comment-actions a {
+    font-size:14px;
+    font-weight:600;
+    }
+
+    .datetime a {
+    font-size:13px;
+    }
+
+    #blog-pager {
+    font-size:20px;
+    font-weight:700;
+    }
+
+    /* Aside */
+    .box {
+    margin-bottom:20px;
+    }
+    
+    input[type=text] {
+    padding:10px;
+    width:100%;
+    border:1px solid #ccc;
+    border-radius:6px;
+    box-sizing:border-box;
+    }
+
+    /* Code Highlighter Start */
+    .codediv {
+    font-size:16px;
+    padding:0px;
+    margin-top:5px;
+    margin-bottom:5px;
+    }
+
+    .fN {
+    color:#21094e;
+    margin-bottom:5px;
+    }
+
+    .code {
+    line-height:normal;
+    padding:15px;
+    overflow:auto;
+    color:#85d9eb;
+    background-color:#191e1e;
+    border-left:5px solid #605a56;    
+    }
+
+    pre {
+    margin:0px;
+    padding:0px;
+    }
+
+    .lI {
+    color:#ffffff;
+    }
+
+    .kC {
+    color:#56e27a;
+    }
+
+    .cC {
+    color:#b8b0b0;
+    }
+
+    .qC {
+    color:#d4f088;
+    }
+
+    .pC {
+    color:#ffffff;
+    }
+
+    .iPC {
+    color:#d4f088;
+    }
+
+    .bC {
+    color:#ffffff;
+    }
+
+    .iBC {
+    color:#d4f088;
+    }
+
+    /* Mobile View */
+    @media (max-width:810px) {
+        body {
+        padding-left:5px;
+        padding-right:5px;
+        }
+        
+        header, nav, main, footer {
+        width:100%;
+        }
+
+        main {
+        flex-direction:column;
+        }
+
+        section {
+        width:100%;
+        }
+
+        aside {
+        width:100%;
+        }
+    }
+    ]]></b:skin>
+</head>
+<body>
+    <header>
+        <a expr:href='data:blog.homepageUrl'><data:blog.title/></a>
+    </header>
+    <main>
+        <section>
+            <b:section id='content-section'>
+            <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog' version='1'>
+                <b:includable id='main'>
+                    <b:loop values='data:posts' var='post'>
+                        <article>
+                            <b:if cond='data:blog.pageType == "index"'>
+                            <h2><a expr:href='data:post.url' rel='follow'><data:post.title/></a></h2>
+                            <b:else/>
+                            <h1><data:post.title/></h1>
+                            </b:if>
+                            <data:post.body/>
+                        </article>
+                        <b:if cond='data:blog.pageType != "index"'>
+                        <div class='commentdiv'>
+                        <b:include cond='data:blog.pageType in {"static_page","item"}' data='post' name='comment_picker'/>	
+                        </div>
+                        </b:if>
+                    </b:loop>
+                    <div id='blog-pager'>
+                        <b:if cond='data:newerPageUrl'>
+                            <span id='blog-pager-newer-link'>								
+                            <a class='blog-pager-newer-link' expr:href='data:newerPageUrl' rel='follow' title='Newer Post'>Newer Post</a>
+                            </span>
+                        </b:if>
+                        <b:if cond='data:olderPageUrl'>
+                            <span id='blog-pager-older-link'>
+                            <a class='blog-pager-older-link' expr:href='data:olderPageUrl' rel='follow' title='Older Post'>Older Post</a>
+                            </span>
+                        </b:if>
+                        <a class='home-link' expr:href='data:blog.homepageUrl' rel='follow'>Home</a>
+                    </div>
+                </b:includable>
+            </b:widget>
+            </b:section>                
+        </section>
+        <aside>
+            <div class='box'>            
+                <h4>Popular Posts</h4>
+                <b:section id='popularpost-section'>
+                    <b:widget id='PopularPosts1' locked='true' title='' type='PopularPosts' version='1'>
+                        <b:includable id='main'>
+                        <ul>
+                        <b:loop values='data:posts' var='post'>
+                        <li><a expr:href='data:post.href'><data:post.title/></a></li>
+                        </b:loop>
+                        </ul>
+                        </b:includable>
+                    </b:widget>
+                </b:section>
+            </div>
+            <div class='box'>            
+                <h4>Search</h4>
+                <form expr:action='data:blog.searchUrl' id='uform' target='_top'>
+                <input type='text' id='usearch' placeholder='Search' name='q' expr:value='data:view.isSearch ? data:view.search.query.escaped : &quot;&quot;' autocomplete='off'/>
+                </form>
+            </div>
+            <div class='box'>
+                <h4>Label</h4>
+                <b:section id='label-section'>
+                    <b:widget id='Label1' locked='true' title='Labels' type='Label' version='1'>
+                        <b:includable id='main'>
+                        <ul>
+                        <b:loop values='data:labels' var='label'>
+                        <li><a class='label' expr:dir='data:blog.languageDirection' expr:href='data:label.url'><data:label.name/> (<data:label.count/>)</a></li>
+                        </b:loop>
+                        </ul>
+                        </b:includable>
+                    </b:widget>
+                </b:section>
+            </div>
+        </aside>
+    </main>
+    <footer>
+    Copyright &#9400; <data:blog.title/> | Powered by <a href='https://www.blogger.com'>Blogger.com</a>
+    </footer>
+</body>
+</html>
